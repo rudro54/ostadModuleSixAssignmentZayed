@@ -11,11 +11,11 @@
 
 SELECT
     c.name AS customer_name,
-    SUM(oi.unit_price * oi.quantity) AS total_purchase_amount
+    SUM(oi.unit_price * oi.quantity) AS total_purchased_amount
 FROM Customers c
     JOIN Orders o ON c.customer_id = o.customer_id
     JOIN Order_Items oi ON o.order_id = oi.order_id
 GROUP BY c.name
 ORDER BY
-    total_purchase_amount DESC
+    total_purchased_amount DESC
 LIMIT 5;
